@@ -27,7 +27,7 @@ export default function Home() {
       <header className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-5 sm:px-6">
         <a href="#top" className="flex items-center gap-2 text-lg font-bold">
           <span aria-hidden="true" className="grid size-8 place-items-center rounded-lg bg-lime ring-2 ring-ink">
-            ✦
+            <svg viewBox="0 0 24 24" className="size-4" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" /></svg>
           </span>
           Noezz Caption
         </a>
@@ -50,7 +50,7 @@ export default function Home() {
       <main>
         <section id="top" className="mx-auto grid max-w-6xl items-start gap-12 px-4 pb-20 pt-10 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:pt-16">
           <div className="lg:sticky lg:top-10">
-            <p className="pop inline-block rounded-full bg-white px-3 py-1 text-sm font-medium ring-1 ring-line">🔥 Early access opens in December</p>
+            <p className="pop inline-block rounded-full bg-white px-3 py-1 text-sm font-medium ring-1 ring-line"><span aria-hidden="true" className="mr-2 inline-block size-2 rounded-full bg-[#e5484d] align-middle" />Early access opens in December</p>
             <h1 className="pop mt-6 text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-7xl" style={{ "--d": "0.08s" } as React.CSSProperties}>
               A week of captions in <span className="bg-lime px-2 ring-2 ring-ink [box-decoration-break:clone]">10 seconds.</span>
             </h1>

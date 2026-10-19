@@ -21,6 +21,7 @@ export default function TryIt() {
     e.preventDefault();
     const out = generateCaptions(topic, tone, platform);
     setError(out.length === 0);
+    if (out.length === 0) (e.currentTarget as HTMLFormElement).querySelector("input")?.focus();
     setResults(out);
     setRun((r) => r + 1);
     setCopied(null);
@@ -72,7 +73,7 @@ export default function TryIt() {
           ))}
         </fieldset>
         <button type="submit" className="mt-1 rounded-xl bg-lime px-5 py-3 font-semibold text-ink ring-2 ring-ink hover:bg-[#c8f520]">
-          Generate captions ✨
+          Generate captions
         </button>
       </form>
 
@@ -80,7 +81,7 @@ export default function TryIt() {
         {results.map((c, i) => (
           <div key={`${run}-${i}`} className="pop rounded-2xl bg-paper p-4" style={{ "--d": `${i * 0.12}s` } as React.CSSProperties}>
             <p className="whitespace-pre-line text-sm leading-relaxed">{c}</p>
-            <button type="button" onClick={() => copy(i)} className="mt-3 text-xs font-semibold underline underline-offset-4">
+            <button type="button" onClick={() => copy(i)} className="-mx-2 mt-2 min-h-8 rounded-lg px-2 text-sm font-semibold underline underline-offset-4 hover:bg-white">
               {copied === i ? "Copied ✓" : "Copy"}
             </button>
           </div>

@@ -13,7 +13,10 @@ export default function Waitlist() {
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const email = String(new FormData(e.currentTarget).get("email") ?? "");
-    if (!isValidEmail(email)) return setState("error");
+    if (!isValidEmail(email)) {
+      setState("error");
+      return e.currentTarget.querySelector("input")?.focus();
+    }
     setCount((c) => c + 1);
     setState("done");
   }
@@ -24,7 +27,7 @@ export default function Waitlist() {
     <div id="waitlist" className="w-full max-w-md">
       {state === "done" ? (
         <p role="status" className="rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-lime">
-          You&apos;re #{fmt(count)} on the list 🎉 (Demo: no email was sent.)
+          You&apos;re #{fmt(count)} on the list. (Demo: no email was sent.)
         </p>
       ) : (
         <form onSubmit={submit} noValidate className="flex flex-col gap-2 sm:flex-row">
